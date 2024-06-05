@@ -1,0 +1,92 @@
+root@localhost:~/tutorial# samtools view alignments.bam
+r0020ref9301S2I6M1P1I1P1I4M2I*00AAAAGATAAGGGATAAA*
+x50ref2123024M*00AATAATTAAGTCTACAGAGCAACT????????????????????????
+x30ref26309M4I13M*00TTATAAAACAAATAATTAAGTCTACA??????????????????????????
+r00183ref37309M=7-39CAGCGCCAT*
+r001163ref7308M4I4M1D3M=3739TTAGATAAAGAGGATACTG*XX:B:S,12561,2,20,112
+r00316ref29306H5M*00TAGGC*
+x20ref223021M*00GGTTTTATAAAACAAATAATT?????????????????????
+x60ref2143023M*00TAATTAAGTCTACAGAGCAACTA???????????????????????
+x10ref213020M*00AGGTTTTATAAAACAAATAA????????????????????
+r0040ref16306M14N1I5M*00ATAGCTCTCAGC*
+x40ref2103025M*00CAAATAATTAAGTCTACAGAGCAAC?????????????????????????
+r0030ref9305H6M*00AGCTAA*
+root@localhost:~/tutorial# samtools view alignments.bam ref2:10-11
+[E::idx_find_and_load] Could not retrieve index file for 'alignments.bam'
+samtools view: Random alignment retrieval only works for indexed SAM.gz, BAM or CRAM files.
+root@localhost:~/tutorial# samtools view alignments.fixed.bam ref2:10-11
+[E::idx_find_and_load] Could not retrieve index file for 'alignments.fixed.bam'
+samtools view: Random alignment retrieval only works for indexed SAM.gz, BAM or CRAM files.
+root@localhost:~/tutorial# samtools --help
+
+Program: samtools (Tools for alignments in the SAM format)
+Version: 1.18 (using htslib 1.18)
+
+Usage:   samtools <command> [options]
+
+Commands:
+  -- Indexing
+     dict           create a sequence dictionary file
+     faidx          index/extract FASTA
+     fqidx          index/extract FASTQ
+     index          index alignment
+
+  -- Editing
+     calmd          recalculate MD/NM tags and '=' bases
+     fixmate        fix mate information
+     reheader       replace BAM header
+     targetcut      cut fosmid regions (for fosmid pool only)
+     addreplacerg   adds or replaces RG tags
+     markdup        mark duplicates
+     ampliconclip   clip oligos from the end of reads
+
+  -- File operations
+     collate        shuffle and group alignments by name
+     cat            concatenate BAMs
+     consensus      produce a consensus Pileup/FASTA/FASTQ
+     merge          merge sorted alignments
+     mpileup        multi-way pileup
+     sort           sort alignment file
+     split          splits a file by read group
+     quickcheck     quickly check if SAM/BAM/CRAM file appears intact
+     fastq          converts a BAM to a FASTQ
+     fasta          converts a BAM to a FASTA
+     import         Converts FASTA or FASTQ files to SAM/BAM/CRAM
+     reference      Generates a reference from aligned data
+     reset          Reverts aligner changes in reads
+
+  -- Statistics
+     bedcov         read depth per BED region
+     coverage       alignment depth and percent coverage
+     depth          compute the depth
+     flagstat       simple stats
+     idxstats       BAM index stats
+     cram-size      list CRAM Content-ID and Data-Series sizes
+     phase          phase heterozygotes
+     stats          generate stats (former bamcheck)
+     ampliconstats  generate amplicon specific stats
+
+  -- Viewing
+     flags          explain BAM flags
+     head           header viewer
+     tview          text alignment viewer
+     view           SAM<->BAM<->CRAM conversion
+     depad          convert padded BAM to unpadded BAM
+     samples        list the samples in a set of SAM/BAM/CRAM files
+
+  -- Misc
+     help [cmd]     display this help message or help for [cmd]
+     version        detailed version information
+
+root@localhost:~/tutorial# samtools index alignments.bam
+[E::hts_idx_push] Unsorted positions on sequence #2: 12 followed by 6
+[E::sam_index] Read 'x3' with ref_name='ref2', ref_length=40, flags=0, pos=6 cannot be indexed
+samtools index: failed to create index for "alignments.bam"
+root@localhost:~/tutorial# samtools sort alignments.bam > alignments.fixed.bam
+root@localhost:~/tutorial# samtools index alignments.fixed.bam
+root@localhost:~/tutorial# samtools view alignments.fixed.bam ref2:10-11
+x10ref213020M*00AGGTTTTATAAAACAAATAA????????????????????
+x20ref223021M*00GGTTTTATAAAACAAATAATT?????????????????????
+x30ref26309M4I13M*00TTATAAAACAAATAATTAAGTCTACA??????????????????????????
+x40ref2103025M*00CAAATAATTAAGTCTACAGAGCAAC?????????????????????????
+root@localhost:~/tutorial# 
