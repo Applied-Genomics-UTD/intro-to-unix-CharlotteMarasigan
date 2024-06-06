@@ -1,0 +1,96 @@
+root@localhost:~/tutorial# bedtools merge -i exons.bed
+Error: unable to open file or unable to determine types for file exons.bed
+
+- Please ensure that your file is TAB delimited (e.g., cat -t FILE).
+- Also ensure that your file has integer chromosome coordinates in the 
+  expected columns (e.g., cols 2 and 3 for BED).
+root@localhost:~/tutorial# bedtools merge -i exons.fixed.bed
+Error: Unable to open file exons.fixed.bed. Exiting.
+root@localhost:~/tutorial# bedtools merge -i exons.fixed.bed
+Error: Unable to open file exons.fixed.bed. Exiting.
+root@localhost:~/tutorial# cat -t exons.bed
+chr1 11873 12227 NR_046018_exon_0_0_chr1_11874_f 0 +
+chr1^I12612^I12721^INR_046018_exon_1_0_chr1_12613_f^I0^I+
+chr1^I14361^I14829^INR_024540_exon_0_0_chr1_14362_r^I0^I-
+chr1^I14969^I15038^INR_024540_exon_1_0_chr1_14970_r^I0^I-
+chr1^I15795^I15947^INR_024540_exon_2_0_chr1_15796_r^I0^I-
+chr1^I16606^I16765^INR_024540_exon_3_0_chr1_16607_r^I0^I-
+chr1^I16857^I17055^INR_024540_exon_4_0_chr1_16858_r^I0^I-
+chr1^I17232^I17368^INR_024540_exon_5_0_chr1_17233_r^I0^I-
+chr1^I17605^I17742^INR_024540_exon_6_0_chr1_17606_r^I0^I-
+chr1^I17914^I18061^INR_024540_exon_7_0_chr1_17915_r^I0^I-
+chr1^I18267^I18366^INR_024540_exon_8_0_chr1_18268_r^I0^I-
+chr1^I24737^I24891^INR_024540_exon_9_0_chr1_24738_r^I0^I-
+chr1^I29320^I29370^INR_024540_exon_10_0_chr1_29321_r^I0^I-
+chr1^I34610^I35174^INR_026818_exon_0_0_chr1_34611_r^I0^I-
+chr1^I34610^I35174^INR_026820_exon_0_0_chr1_34611_r^I0^I-
+chr1^I35276^I35481^INR_026818_exon_1_0_chr1_35277_r^I0^I-
+chr1^I35276^I35481^INR_026820_exon_1_0_chr1_35277_r^I0^I-
+chr1^I35720^I36081^INR_026818_exon_2_0_chr1_35721_r^I0^I-
+chr1^I35720^I36081^INR_026820_exon_2_0_chr1_35721_r^I0^I-
+root@localhost:~/tutorial# head exon.bed
+head: cannot open 'exon.bed' for reading: No such file or directory
+root@localhost:~/tutorial# cat -t exons.bed
+chr1 11873 12227 NR_046018_exon_0_0_chr1_11874_f 0 +
+chr1^I12612^I12721^INR_046018_exon_1_0_chr1_12613_f^I0^I+
+chr1^I14361^I14829^INR_024540_exon_0_0_chr1_14362_r^I0^I-
+chr1^I14969^I15038^INR_024540_exon_1_0_chr1_14970_r^I0^I-
+chr1^I15795^I15947^INR_024540_exon_2_0_chr1_15796_r^I0^I-
+chr1^I16606^I16765^INR_024540_exon_3_0_chr1_16607_r^I0^I-
+chr1^I16857^I17055^INR_024540_exon_4_0_chr1_16858_r^I0^I-
+chr1^I17232^I17368^INR_024540_exon_5_0_chr1_17233_r^I0^I-
+chr1^I17605^I17742^INR_024540_exon_6_0_chr1_17606_r^I0^I-
+chr1^I17914^I18061^INR_024540_exon_7_0_chr1_17915_r^I0^I-
+chr1^I18267^I18366^INR_024540_exon_8_0_chr1_18268_r^I0^I-
+chr1^I24737^I24891^INR_024540_exon_9_0_chr1_24738_r^I0^I-
+chr1^I29320^I29370^INR_024540_exon_10_0_chr1_29321_r^I0^I-
+chr1^I34610^I35174^INR_026818_exon_0_0_chr1_34611_r^I0^I-
+chr1^I34610^I35174^INR_026820_exon_0_0_chr1_34611_r^I0^I-
+chr1^I35276^I35481^INR_026818_exon_1_0_chr1_35277_r^I0^I-
+chr1^I35276^I35481^INR_026820_exon_1_0_chr1_35277_r^I0^I-
+chr1^I35720^I36081^INR_026818_exon_2_0_chr1_35721_r^I0^I-
+chr1^I35720^I36081^INR_026820_exon_2_0_chr1_35721_r^I0^I-
+root@localhost:~/tutorial# sed
+Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
+
+  -n, --quiet, --silent
+                 suppress automatic printing of pattern space
+      --debug
+                 annotate program execution
+  -e script, --expression=script
+                 add the script to the commands to be executed
+  -f script-file, --file=script-file
+                 add the contents of script-file to the commands to be executed
+  --follow-symlinks
+
+~
+~
+~
+~
+~
+~
+~
+~
+~VIM - Vi IMproved
+~
+~version 9.0.1499
+~by Bram Moolenaar et al.
+~Modified by team+vim@tracker.debian.org
+~Vim is open source and freely distributable
+~
+~Help poor children in Uganda!
+~type  :help iccf<Enter>for information
+~
+~type  :q<Enter>to exit
+~type  :help<Enter>  or  <F1>  for on-line help
+~type  :help version9<Enter>   for version info
+~
+~
+~
+~
+~
+~
+~
+~
+~
+0,0-1All
